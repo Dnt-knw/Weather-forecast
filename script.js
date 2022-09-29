@@ -165,14 +165,23 @@ $(function() {
 		sunriseMinutesUTC = sunriseMinutesUTC < 10 ? '0' + sunriseMinutesUTC : sunriseMinutesUTC;
 		sunsetMinutesUTC = sunsetMinutesUTC < 10 ? '0' + sunsetMinutesUTC : sunsetMinutesUTC;
 
-		const lon = json.coord.lon;
-		const lat = json.coord.lat;
+		function insertComma(num) {
+			if (isNaN(+num)) return;
+			return num.toString().split('.').join(',');
+		}
+
+		const lon = insertComma(json.coord.lon);
+		const lat = insertComma(json.coord.lat);
 
 		const tempNow = translateToCelsius(json.main.temp);
 		const minTemp = translateToCelsius(json.main.temp_min);
 		const maxTemp = translateToCelsius(json.main.temp_max);
 		const feelsLike = translateToCelsius(json.main.feels_like);
 		const weather = json.weather[0];
+		const pressure = insertComma(translateTommHg(json.main.pressure));
+		const wind = insertComma(json.wind.speed);
+		const gust = insertComma(json.wind.gust);
+		const visibility = insertComma(+(json.visibility / 1000).toFixed(2));
 
 		const country = json.sys.country;
 
@@ -196,7 +205,7 @@ $(function() {
 			elements[0].html(isUndefined(`${json.name}, ${isUndefined(country)} ${weatherIcon[0].outerHTML}`));
 			elements[1].text(`Longitude: ${isUndefined(lon)}`);
 			elements[2].text(`Latitude: ${isUndefined(lat)}`);
-			elements[3].text(`Pressure: ${isUndefined(translateTommHg(json.main.pressure))}`);
+			elements[3].text(`Pressure: ${isUndefined(pressure)}`);
 			elements[4].text(`Humidity: ${isUndefined(json.main.humidity)}%`);
 			elements[5].text(`${isUndefined(tempNow)}°C`);
 			elements[6].text(`${isUndefined(weather.main)}`);
@@ -205,10 +214,10 @@ $(function() {
 			elements[9].text(`Feels like: ${isUndefined(feelsLike)}`);
 			elements[10].text(`Max: ${isUndefined(maxTemp)}`);
 			elements[11].text(`Cloudiness: ${isUndefined(json.clouds.all)}%`);
-			elements[12].text(`Wind: ${isUndefined(json.wind.speed)} m/s`);
-			elements[13].text(`Gust: ${isUndefined(json.wind.gust)} m/s`);
+			elements[12].text(`Wind: ${isUndefined(wind)} m/s`);
+			elements[13].text(`Gust: ${isUndefined(gust)} m/s`);
 			elements[14].text(`Direction: ${isUndefined(json.wind.deg)}°`);
-			elements[15].text(`Visibility: ${isUndefined((json.visibility / 1000).toFixed(2))} km`);
+			elements[15].text(`Visibility: ${isUndefined(visibility)} km`);
 			elements[16].text(`Sunrise: ${isUndefined(sunriseTime)}:${sunriseMinutesUTC}`);
 			elements[17].text(`Sunset: ${isUndefined(sunsetTime)}:${sunsetMinutesUTC}`);
 
