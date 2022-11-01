@@ -228,9 +228,9 @@ $(function() {
 		if (hoursNow > sunsetTime || hoursNow < sunriseTime) {
 			weatherIcon[0].src = weather.main.includes('Cloud') ? weatherIconUrls[12] :
 				weather.main.includes('Clear') ? weatherIconUrls[11] :
-				weather.description.includes('rain') || weather.main.includes('Drizzle') || weather.description.includes('shower') ? weatherIconUrls[14] :
+				weather.description.includes('rain') || weather.main.includes('Drizzle') || weather.description.includes('shower rain') ? weatherIconUrls[14] :
 				weather.description.includes('overcast') ? weatherIconUrls[13] :
-				weather.main.includes('Snow') ? weatherIconUrls[15] :
+				weather.main.includes('Snow') || weather.description.includes('snow') ? weatherIconUrls[15] :
 				weather.main.includes('Squall') ? weatherIconUrls[17] :
 				weather.description.includes('thunderstorm') ? weatherIconUrls[16] :
 				weather.main.includes('Haze') || weather.main.includes('Smoke') || weather.main.includes('Fog') || weather.main.includes('Mist') ? weatherIconUrls[2] : ''
@@ -238,11 +238,11 @@ $(function() {
 			backgroundImage.attr('src',
 				weather.main.includes('Cloud') ? gifs[14] :
 				weather.main.includes('Clear') ? gifs[16] :
-				weather.description.includes('rain') ? gifs[19] :
+				weather.description.includes('shower rain') ? gifs[20] :
 				weather.description.includes('overcast') ? gifs[17] :
 				weather.main.includes('Drizzle') ? gifs[18] :
-				weather.description.includes('shower') ? gifs[20] :
-				weather.main.includes('Snow') ? gifs[6] :
+				weather.description.includes('rain') ? gifs[19] :
+				weather.main.includes('Snow') || weather.description.includes('snow') ? gifs[6] :
 				weather.main.includes('Squall') ? gifs[22] :
 				weather.description.includes('thunderstorm') ? gifs[5] :
 				weather.main.includes('Haze') || weather.main.includes('Smoke') || weather.main.includes('Fog') || weather.main.includes('Mist') ? gifs[7] : ''
@@ -251,9 +251,9 @@ $(function() {
 			weatherIcon[0].src = weather.main.includes('Cloud') ? weatherIconUrls[1] :
 				weather.description.includes('overcast') ? weatherIconUrls[0] :
 				weather.main.includes('Clear') ? weatherIconUrls[6] :
-				weather.description.includes('rain') || weather.description.includes('shower') || weather.main.includes('Drizzle') ? weatherIconUrls[3] :
+				weather.description.includes('rain') || weather.description.includes('shower rain') || weather.main.includes('Drizzle') ? weatherIconUrls[3] :
 				weather.description.includes('thunderstorm') ? weatherIconUrls[5] :
-				weather.main.includes('Snow') ? weatherIconUrls[4] :
+				weather.main.includes('Snow') || weather.description.includes('snow') ? weatherIconUrls[4] :
 				weather.main.includes('Haze') || weather.main.includes('Smoke') || weather.main.includes('Fog') || weather.main.includes('Mist') ? weatherIconUrls[2] :
 				weather.main.includes('Tornado') ? weatherIconUrls[7] :
 				weather.main.includes('Ash') ? weatherIconUrls[8] :
@@ -264,10 +264,10 @@ $(function() {
 				weather.main.includes('Cloud') ? gifs[0] :
 				weather.description.includes('overcast') ? gifs[1] :
 				weather.main.includes('Clear') ? gifs[2] :
+				weather.description.includes('shower rain') ? gifs[4] :
 				weather.description.includes('rain') ? gifs[3] :
-				weather.description.includes('shower') ? gifs[4] :
 				weather.description.includes('thunderstorm') ? gifs[21] :
-				weather.main.includes('Snow') ? gifs[23] :
+				weather.main.includes('Snow') || weather.description.includes('snow') ? gifs[23] :
 				weather.main.includes('Haze') || weather.main.includes('Smoke') || weather.main.includes('Fog') || weather.main.includes('Mist') ? gifs[15] :
 				weather.main.includes('Tornado') ? gifs[8] :
 				weather.main.includes('Ash') ? gifs[9] :
