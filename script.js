@@ -203,23 +203,23 @@ $(function() {
 			windDirection.css('background', `transparent`);
 
 			elements[0].html(isUndefined(`${json.name}, ${isUndefined(country)} ${weatherIcon[0].outerHTML}`));
-			elements[1].text(`Longitude: ${isUndefined(lon)}`);
-			elements[2].text(`Latitude: ${isUndefined(lat)}`);
-			elements[3].text(`Pressure: ${isUndefined(pressure)}`);
-			elements[4].text(`Humidity: ${isUndefined(json.main.humidity)}%`);
+			elements[1].text(`Longitude ${isUndefined(lon)}`);
+			elements[2].text(`Latitude ${isUndefined(lat)}`);
+			elements[3].text(`Pressure ${isUndefined(pressure)}`);
+			elements[4].text(`Humidity ${isUndefined(json.main.humidity)}%`);
 			elements[5].text(`${isUndefined(tempNow)}°C`);
 			elements[6].text(`${isUndefined(weather.main)}`);
 			elements[7].text(`${isUndefined(weather.description)}`);
-			elements[8].text(`Min: ${isUndefined(minTemp)}`);
-			elements[9].text(`Feels like: ${isUndefined(feelsLike)}`);
-			elements[10].text(`Max: ${isUndefined(maxTemp)}`);
-			elements[11].text(`Cloudiness: ${isUndefined(json.clouds.all)}%`);
-			elements[12].text(`Wind: ${isUndefined(wind)} m/s`);
-			elements[13].text(`Gust: ${isUndefined(gust)} m/s`);
-			elements[14].text(`Direction: ${isUndefined(json.wind.deg)}°`);
-			elements[15].text(`Visibility: ${isUndefined(visibility)} km`);
-			elements[16].text(`Sunrise: ${isUndefined(sunriseTime)}:${sunriseMinutesUTC}`);
-			elements[17].text(`Sunset: ${isUndefined(sunsetTime)}:${sunsetMinutesUTC}`);
+			elements[8].text(`Min ${isUndefined(minTemp)} °C`);
+			elements[9].text(`Feels like ${isUndefined(feelsLike)} °C`);
+			elements[10].text(`Max ${isUndefined(maxTemp)} °C`);
+			elements[11].text(`Cloudiness ${isUndefined(json.clouds.all)}%`);
+			elements[12].text(`Wind ${isUndefined(wind)} m/s`);
+			elements[13].text(`Gust ${isUndefined(gust)} m/s`);
+			elements[14].text(`Direction ${isUndefined(json.wind.deg)}°`);
+			elements[15].text(`Visibility ${isUndefined(visibility)} km`);
+			elements[16].text(`Sunrise ${isUndefined(sunriseTime)}:${sunriseMinutesUTC}`);
+			elements[17].text(`Sunset ${isUndefined(sunsetTime)}:${sunsetMinutesUTC}`);
 
 			searchInput.val(elements[0][0].textContent);
 			return;
