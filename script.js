@@ -328,11 +328,11 @@ $(function() {
 	});
 
 	backgroundImage.on('load', function() {
+		isAnimated = false;		
+		clearInterval(timer);
 		setTimeout(() => {
-			isAnimated = false;
-			clearInterval(timer);
 			putData();
-		}, 250);
+		}, 25);
 	});
 
 	setTimeout(getWeather, 0, 'Moscow');
