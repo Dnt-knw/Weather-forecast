@@ -14,7 +14,7 @@ $(function() {
 	let timer, putData, isAnimated = false;
 
 	const gifs = [
-		'https://dl.dropbox.com/s/eu09dnopr2ucklb/clouds.gif',
+		'https://dl.dropbox.com/s/g5w8plbt793q54t/clouds.gif',
 		'https://dl.dropbox.com/s/13ah9mvt4x65yrd/overcast.gif',
 		'https://dl.dropbox.com/s/tqvkvy0764j7whz/clear.gif',
 		'https://dl.dropbox.com/s/aqmpcy2yen2r76l/rain.gif',
@@ -145,11 +145,16 @@ $(function() {
 		let sunriseTime = sunriseHoursUTC + timezone;
 		let sunsetTime = sunsetHoursUTC + timezone;
 
-		sunriseTime = timezone.toString().includes('.5') || timezone.toString().includes('.75') ? Math.trunc(sunriseTime) : sunriseTime;
-		sunsetTime = timezone.toString().includes('.5') || timezone.toString().includes('.75') ? Math.trunc(sunsetTime) : sunsetTime;
+		if (timezone.toString().includes('.5') || timezone.toString().includes('.75')) {
+			sunriseTime = Math.trunc(sunriseTime);
+			sunsetTime = Math.trunc(sunsetTime);
+		}
 
-		sunriseTime = sunriseMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.5') || sunriseMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.75') ? Math.trunc(sunriseTime + 1) : sunriseTime;
-		sunsetTime = sunsetMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.5') || sunsetMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.75') ? Math.trunc(sunsetTime + 1) : sunsetTime;
+		if (sunriseMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.5') || 
+			sunriseMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.75')) {
+			sunriseTime = Math.trunc(sunriseTime) + 1;
+			sunsetTime = Math.trunc(sunsetTime) + 1;
+		}
 
 		const now = new Date();
 		let hoursNow = now.getUTCHours() + timezone;
@@ -248,8 +253,8 @@ $(function() {
 				weather.main.includes('Haze') || weather.main.includes('Smoke') || weather.main.includes('Fog') || weather.main.includes('Mist') ? gifs[7] : ''
 			);
 		} else {
-			weatherIcon[0].src = weather.main.includes('Cloud') ? weatherIconUrls[1] :
-				weather.description.includes('overcast') ? weatherIconUrls[0] :
+			weatherIcon[0].src = weather.description.includes('overcast') ? weatherIconUrls[0] :
+				weather.main.includes('Cloud') ? weatherIconUrls[1] :
 				weather.main.includes('Clear') ? weatherIconUrls[6] :
 				weather.description.includes('rain') || weather.description.includes('shower rain') || weather.main.includes('Drizzle') ? weatherIconUrls[3] :
 				weather.description.includes('thunderstorm') ? weatherIconUrls[5] :
