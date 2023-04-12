@@ -2,7 +2,6 @@
 
 * {
   font-family: "Quicksand", sans-serif;
-  text-shadow: 2px 2px 1px black;
 }
 
 html,
@@ -44,6 +43,7 @@ body {
   border-left-color: transparent;
   border-right-color: transparent;
   font-size: 14px;
+  text-shadow: 2px 2px 1px black;
 }
 
 #search::placeholder {
@@ -83,6 +83,7 @@ body {
   overflow-y: auto;
   max-width: 900px;
   margin: 0 auto;
+  text-shadow: 2px 2px 1px black;
 }
 
 #background {
