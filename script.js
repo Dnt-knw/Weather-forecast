@@ -150,7 +150,7 @@ $(function() {
 			sunsetTime = Math.trunc(sunsetTime);
 		}
 
-		if (sunriseMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.5') || 
+		if (sunriseMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.5') ||
 			sunriseMinutesUTCBeforeCorrect > 30 && timezone.toString().includes('.75')) {
 			sunriseTime = Math.trunc(sunriseTime) + 1;
 			sunsetTime = Math.trunc(sunsetTime) + 1;
@@ -322,7 +322,7 @@ $(function() {
 
 	};
 
-	$('#button').on('click', function() {
+	const handleInputSearch = () => {
 		const emptyValue = !searchInput.val().length;
 		const currentCityName = elements[0][0].textContent.toUpperCase().replaceAll(' ', '').split(',').join('');
 		const searchingCityName = searchInput.val().toUpperCase().replaceAll(' ', '').split(',').join('');
@@ -330,10 +330,20 @@ $(function() {
 		const samePlace = currentCityName === searchingCityName;
 		if (isAnimated || emptyValue || samePlace) return;
 		getWeather(searchInput.val());
-	});
+	};
+
+	const handleKeyPress = e => {
+		const code = e.originalEvent.code;
+		const key = e.originalEvent.key;
+
+		if (code === 'Enter' || key === 'Enter') handleInputSearch();
+	};
+
+	$('#button').on('click', handleInputSearch);
+	searchInput.on('keypress', handleKeyPress);
 
 	backgroundImage.on('load', function() {
-		isAnimated = false;		
+		isAnimated = false;
 		clearInterval(timer);
 		setTimeout(() => {
 			putData();
