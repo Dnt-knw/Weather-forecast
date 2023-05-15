@@ -14,30 +14,30 @@ $(function() {
 	let timer, putData, isAnimated = false;
 
 	const gifs = [
-		'https://dl.dropbox.com/s/g5w8plbt793q54t/clouds.gif',
-		'https://dl.dropbox.com/s/13ah9mvt4x65yrd/overcast.gif',
-		'https://dl.dropbox.com/s/tqvkvy0764j7whz/clear.gif',
-		'https://dl.dropbox.com/s/aqmpcy2yen2r76l/rain.gif',
-		'https://dl.dropbox.com/s/y2yl1m8vf9jnclp/shower.gif',
-		'https://dl.dropbox.com/s/a1rte50qzb9hrl7/thunderstorm_night.gif',
-		'https://dl.dropbox.com/s/xz0tiglipdhbpot/snow_night.gif',
-		'https://dl.dropbox.com/s/i39qcl58dyqnbu2/fog_night.gif',
-		'https://dl.dropbox.com/s/a067lxoks5rfb38/tornado.gif',
-		'https://dl.dropbox.com/s/56rleimgzx4wdtn/ash.gif',
-		'https://dl.dropbox.com/s/4l10hqs0olr1rnf/squall.gif',
-		'https://dl.dropbox.com/s/wricr7kzey10mkz/sand.gif',
-		'https://dl.dropbox.com/s/2zq7iwgo3ja0adu/dust.gif',
-		'https://dl.dropbox.com/s/xf6jcuac6mftx81/drizzle.gif',
-		'https://dl.dropbox.com/s/syiwj1vdquwx6bh/clouds_night.gif',
-		'https://dl.dropbox.com/s/qgw1jsphjoug631/fog.gif',
-		'https://dl.dropbox.com/s/1j4y4yb98icdqjl/clear_night.gif',
-		'https://dl.dropbox.com/s/3vyagrftk3xxmc8/overcast_night.gif',
-		'https://dl.dropbox.com/s/bbukf51cyowhqmx/drizzle_night.gif',
-		'https://dl.dropbox.com/s/exjmlzjxlcdjuk3/rain_night.gif',
-		'https://dl.dropbox.com/s/3aj6a3ulv7xzn67/shower_night.gif',
-		'https://dl.dropbox.com/s/lkdc8pwje40qeya/thunderstorm.gif',
-		'https://dl.dropbox.com/s/v0xfb60w3d7za68/squall_night.gif',
-		'https://dl.dropbox.com/s/x44q8r1wd43099y/snow.gif',
+		'./assets/weather_gifs/clouds.gif',
+		'./assets/weather_gifs/overcast.gif',
+		'./assets/weather_gifs/clear.gif',
+		'./assets/weather_gifs/rain.gif',
+		'./assets/weather_gifs/shower.gif',
+		'./assets/weather_gifs/thunderstorm_night.gif',
+		'./assets/weather_gifs/snow_night.gif',
+		'./assets/weather_gifs/fog_night.gif',
+		'./assets/weather_gifs/tornado.gif',
+		'./assets/weather_gifs/ash.gif',
+		'./assets/weather_gifs/squall.gif',
+		'./assets/weather_gifs/sand.gif',
+		'./assets/weather_gifs/dust.gif',
+		'./assets/weather_gifs/drizzle.gif',
+		'./assets/weather_gifs/clouds_night.gif',
+		'./assets/weather_gifs/fog.gif',
+		'./assets/weather_gifs/clear_night.gif',
+		'./assets/weather_gifs/overcast_night.gif',
+		'./assets/weather_gifs/drizzle_night.gif',
+		'./assets/weather_gifs/rain_night.gif',
+		'./assets/weather_gifs/shower_night.gif',
+		'./assets/weather_gifs/thunderstorm.gif',
+		'./assets/weather_gifs/squall_night.gif',
+		'./assets/weather_gifs/snow.gif',
 	];
 
 	const elements = [
@@ -63,41 +63,41 @@ $(function() {
 
 	const weatherIconUrls = [
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/d8h5orcqxp3bbyx/cloud.png',
+		'./assets/weather_icons/cloud.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/dtoaxj2a36vd7xv/cloudy.png',
+		'./assets/weather_icons/cloudy.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/36vtvi9k14oiy0a/fog.png',
+		'./assets/weather_icons/fog.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/djcsj3zvqds7e79/rainy.png',
+		'./assets/weather_icons/rainy.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/vojkuxkisqkgfrr/snowy.png',
+		'./assets/weather_icons/snowy.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/48uw4q5wwlu7u57/storm.png',
+		'./assets/weather_icons/storm.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/vmg2ji85bb9l32e/sun.png',
+		'./assets/weather_icons/sun.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/ypz0h9i6h9iybdu/tornado.png',
+		'./assets/weather_icons/tornado.png',
 		//Icon made by Freepik from www.flaticon.com
-		'https://dl.dropbox.com/s/d2jvqzz45byh7ei/volcano.png',
+		'./assets/weather_icons/volcano.png',
 		//Icon made by Freepik from www.flaticon.com
-		'https://dl.dropbox.com/s/zmk8l5l5waf4kxa/sand%20%26%20dust.png',
+		'./assets/weather_icons/sand & dust.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/pfr8bjapd11dj38/windy.png',
+		'./assets/weather_icons/windy.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/mpan3m17gy1wmuo/clear_night.png',
+		'./assets/weather_icons/clear_night.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/cmm4ddcxkhvjns7/cloud_night.png',
+		'./assets/weather_icons/cloud_night.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/4yd6fa8ql5v99ec/cloudy_night.png',
+		'./assets/weather_icons/cloudy_night.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/quzc6ydryv2qg7b/rain_night.png',
+		'./assets/weather_icons/rain_night.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/3qlivniiec07qdn/snow_night.png',
+		'./assets/weather_icons/snow_night.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/51c6i3rzf0gnsfp/storm_night.png',
+		'./assets/weather_icons/storm_night.png',
 		//Icon made by iconixar from www.flaticon.com
-		'https://dl.dropbox.com/s/9j6zaxfvuy3jiba/windy_night.png',
+		'./assets/weather_icons/windy_night.png',
 	];
 
 	const weatherIcon = $('<img id="weather-icon"/>');
