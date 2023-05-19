@@ -10,7 +10,7 @@
 
 1. Enter the city name and click on the search icon 🔍, or the "Enter" key 🗝️
 2. Wait for the data and background gif to load ⏳
-3. If the city was found, you will see the weather data in UI ☑️
+3. If the city was found ☑️, you will see the weather data in UI 📝
 4. Otherwise the app will show you an error ❌
 
 ## Usage ⌨️
